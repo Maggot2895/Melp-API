@@ -9,8 +9,4 @@ router.register('restaurants',views.RestaurantsView)
 urlpatterns = [
 
     url('',include(router.urls)),
-    #url('statistics/(?P<pk>.+)/$', views.RestaurantsView.as_view())
-    #print('statistics/(?P<pk>.+)/$')
-    #url('^statistics'+'?'+'(P<pk>.+)/$', views.StatisticsView)
-    #url(r'^(?P<username>\w{0,50})/$', views.RestaurantsView.profile_page)
     ]
