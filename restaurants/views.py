@@ -13,13 +13,13 @@ from rest_framework.renderers import JSONRenderer
 class RestaurantsView(viewsets.ModelViewSet):
     queryset = Restaurants.objects.all()
     serializer_class = RestaurantsSerializer
-    
-class StatisticView(generics.ListAPIView):
+
+class StatisticView(views.APIView):
 
     serializer_class = RestaurantsSerializer
     renderer_classes = (JSONRenderer,)
 
-    def get(self,request,coords):
+    def get(self,request):
         queryset = Restaurants.objects.all()
         lat = self.request.query_params.get('latitude',None)
         lon = self.request.query_params.get('longitude',None)
