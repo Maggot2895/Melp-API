@@ -1,12 +1,13 @@
 from django.conf.urls import url, include
-from . import views
-from rest_framework import routers
+from .views import RestaurantsView,StatisticView
+from rest_framework.routers import SimpleRouter,DefaultRouter
 
-
-router = routers.DefaultRouter()
-router.register('restaurants',views.RestaurantsView)
+router = DefaultRouter()
+router.register('restaurants',RestaurantsView)
 
 urlpatterns = [
-
-    url('',include(router.urls)),
+    url('(?P<coords>.+)/$', StatisticView.as_view()),
+    url('',include(router.urls)),  
     ]
+
+
