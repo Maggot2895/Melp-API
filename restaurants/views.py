@@ -25,7 +25,7 @@ class StatisticView(views.APIView):
         lon = self.request.query_params.get('longitude',None)
         rad = self.request.query_params.get('radius',None)
         
-        #Definicion de limites en base al radio
+        #Limit defintion
         xneg = float(lat) - float(rad) 
         xpos = float(lat) + float(rad)
         yneg = float(lon) - float(rad)
